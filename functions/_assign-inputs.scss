@@ -1,0 +1,14 @@
+@use "sass:list";
+@use "sass:string";
+@function assign-inputs($inputs, $pseudo: null) {
+
+  $list: ();
+
+  @each $input in $inputs {
+    $input: string.unquote($input);
+    $input: if(sass($pseudo): $input + ":" + $pseudo; else: $input);
+    $list: list.append($list, $input, comma);
+  }
+
+  @return $list;
+}

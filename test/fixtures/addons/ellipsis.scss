@@ -1,0 +1,5 @@
+@use "bourbon" as *;
+
+.ellipsis {
+  @include ellipsis;
+}

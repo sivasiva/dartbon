@@ -1,0 +1,29 @@
+@use "../helpers/font-source-declaration";
+@use "../settings/asset-pipeline" as settings-asset-pipeline;
+
+@mixin font-face(
+  $font-family,
+  $file-path,
+  $weight: normal,
+  $style: normal,
+  $asset-pipeline: settings-asset-pipeline.$asset-pipeline,
+  $file-formats: eot woff2 woff ttf svg) {
+
+
+  $font-url-prefix: font-source-declaration.font-url-prefixer($asset-pipeline);
+
+  @font-face {
+    font-family: $font-family;
+    font-style: $style;
+    font-weight: $weight;
+
+    src: font-source-declaration.font-source-declaration(
+      $font-family,
+      $file-path,
+      $asset-pipeline,
+      $file-formats,
+      $font-url-prefix
+    );
+  }
+
+}

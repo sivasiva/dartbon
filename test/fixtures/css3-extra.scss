@@ -1,0 +1,35 @@
+@use "bourbon" as *;
+
+.animation { @include animation(spin 2s linear infinite); }
+.appearance { @include appearance(none); }
+.backface-visibility { @include backface-visibility(hidden); }
+.background { @include background(linear-gradient(to right, #fff, #000), #eee); }
+.background-image { @include background-image(linear-gradient(#fff, #000)); }
+.border-image { @include border-image(url("/border.png") 30 round); }
+.calc { @include calc(width, "100% - 20px"); }
+.columns { @include columns(2); }
+.filter { @include filter(blur(5px)); }
+
+.flex-box { @include display-box; @include box(horizontal, justify, center); }
+
+.font-feature-settings { @include font-feature-settings(smcp, kern); }
+.hyphens { @include hyphens(auto); }
+.image-rendering { @include image-rendering(pixelated); }
+
+@include keyframes(spin) {
+  from { transform: rotate(0); }
+  to { transform: rotate(360deg); }
+}
+
+.linear-gradient { @include linear-gradient(to top, #1e5799, #2989d8); }
+.perspective { @include perspective(1000px); }
+.perspective-origin { @include perspective-origin(bottom); }
+
+.placeholder { @include placeholder { color: #999; } }
+
+.radial-gradient { @include radial-gradient(circle, #fff, #000); }
+.selection { @include selection { background: #ff0; } }
+.text-decoration { @include text-decoration(underline); }
+.transform { @include transform(rotate(45deg)); }
+.transition { @include transition(all 0.3s ease); }
+.user-select { @include user-select(none); }

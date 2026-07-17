@@ -1,0 +1,27 @@
+.four {
+  padding: 10px 20px 30px 40px;
+}
+
+.three {
+  padding: 5px 10px 5px 20px;
+}
+
+.two {
+  padding: 50px 100px;
+}
+
+.one {
+  padding: 10px;
+}
+
+.border-all {
+  border-width: 2px 5px 8px 12px;
+}
+
+.border-top {
+  border-top: 10px;
+}
+
+.border-color {
+  border-color: #ffffff #000000;
+}

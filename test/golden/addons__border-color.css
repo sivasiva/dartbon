@@ -1,0 +1,21 @@
+.border-color-all {
+  border-color: #ff0000;
+}
+
+.border-color-alternate {
+  border-color: #00ff00 #0000ff;
+}
+
+.border-color-implied-left {
+  border-color: #ff0000 #00ff00 #0000ff;
+}
+
+.border-color-explicit {
+  border-color: #0000ff #00ff00 #ff0000 #ffff00;
+}
+
+.border-color-false-third {
+  border-top-color: #00ff00;
+  border-right-color: #ffff00;
+  border-left-color: #0000ff;
+}

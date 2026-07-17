@@ -1,0 +1,6 @@
+@import "bourbon";
+
+.compat-check {
+  @include size(10px);
+  @include clearfix;
+}

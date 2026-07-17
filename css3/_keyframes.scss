@@ -1,0 +1,39 @@
+@use "../settings/prefixer" as settings-prefixer;
+
+// Adds keyframes blocks for supported prefixes, removing redundant prefixes in the block's content
+@mixin keyframes($name) {
+
+  $original-prefix-for-webkit:    settings-prefixer.$prefix-for-webkit;
+  $original-prefix-for-mozilla:   settings-prefixer.$prefix-for-mozilla;
+  $original-prefix-for-microsoft: settings-prefixer.$prefix-for-microsoft;
+  $original-prefix-for-opera:     settings-prefixer.$prefix-for-opera;
+  $original-prefix-for-spec:      settings-prefixer.$prefix-for-spec;
+
+  @if $original-prefix-for-webkit {
+    @include settings-prefixer.set-prefixes(true, false, false, false, false);
+    @-webkit-keyframes #{$name} {
+      @content;
+    }
+  }
+
+  @if $original-prefix-for-mozilla {
+    @include settings-prefixer.set-prefixes(false, true, false, false, false);
+    @-moz-keyframes #{$name} {
+      @content;
+    }
+  }
+
+  @include settings-prefixer.set-prefixes(
+    $original-prefix-for-webkit,
+    $original-prefix-for-mozilla,
+    $original-prefix-for-microsoft,
+    $original-prefix-for-opera,
+    $original-prefix-for-spec
+  );
+
+  @if $original-prefix-for-spec {
+    @keyframes #{$name} {
+      @content;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+.georgia {
+  content: "Georgia", "Cambria", "Times New Roman", "Times", serif;
+}
+
+.helvetica {
+  content: "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+}
+
+.lucida-grande {
+  content: "Lucida Grande", "Tahoma", "Verdana", "Arial", sans-serif;
+}
+
+.monospace {
+  content: "Bitstream Vera Sans Mono", "Consolas", "Courier", monospace;
+}
+
+.verdana {
+  content: "Verdana", "Geneva", sans-serif;
+}

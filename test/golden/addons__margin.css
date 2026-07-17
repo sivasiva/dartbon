@@ -1,0 +1,21 @@
+.margin-all {
+  margin: 1px;
+}
+
+.margin-alternate {
+  margin: 2px 3px;
+}
+
+.margin-implied-left {
+  margin: 4px 5px 6px;
+}
+
+.margin-explicit {
+  margin: 7px 8px 9px 10px;
+}
+
+.margin-false-third {
+  margin-top: 11px;
+  margin-right: 12px;
+  margin-left: 13px;
+}

@@ -1,0 +1,19 @@
+.border-top-radius {
+  border-top-left-radius: 1em;
+  border-top-right-radius: 1em;
+}
+
+.border-left-radius {
+  border-bottom-left-radius: 2em;
+  border-top-left-radius: 2em;
+}
+
+.border-right-radius {
+  border-bottom-right-radius: 3em;
+  border-top-right-radius: 3em;
+}
+
+.border-bottom-radius {
+  border-bottom-left-radius: 4em;
+  border-bottom-right-radius: 4em;
+}

@@ -1,0 +1,25 @@
+@use "sass:list";
+@use "sass:string";
+@use "shape-size-stripper";
+
+@function radial-positions-parser($gradient-pos) {
+
+
+  $shape-size: list.nth($gradient-pos, 1);
+  $pos:        list.nth($gradient-pos, 2);
+  $shape-size-spec: shape-size-stripper.shape-size-stripper($shape-size);
+
+  $pre-spec: string.unquote(if(sass($pos): "#{$pos}, "))
+             string.unquote(if(sass($shape-size): "#{$shape-size},"));
+  $pos-spec: if(sass($pos): "at #{$pos}");
+
+  $spec: "#{$shape-size-spec} #{$pos-spec}";
+
+  // Add comma
+  @if ($spec != "  ") {
+    $spec: "#{$spec},";
+  }
+
+
+  @return $pre-spec $spec;
+}

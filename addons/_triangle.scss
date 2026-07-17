@@ -1,0 +1,64 @@
+@use "sass:list";
+@mixin triangle($size, $color, $direction) {
+  $width: list.nth($size, 1);
+  $height: list.nth($size, list.length($size));
+  $foreground-color: list.nth($color, 1);
+  $background-color: if(sass(list.length($color) == 2): list.nth($color, 2); else: transparent);
+  height: 0;
+  width: 0;
+
+  @if ($direction == up) or ($direction == down) or ($direction == right) or ($direction == left) {
+    $width: $width * 0.5;
+    $height: if(sass(list.length($size) > 1): $height; else: $height*0.5);
+
+    @if $direction == up {
+      border-bottom: $height solid $foreground-color;
+      border-left: $width solid $background-color;
+      border-right: $width solid $background-color;
+    } @else if $direction == right {
+      border-bottom: $width solid $background-color;
+      border-left: $height solid $foreground-color;
+      border-top: $width solid $background-color;
+    } @else if $direction == down {
+      border-left: $width solid $background-color;
+      border-right: $width solid $background-color;
+      border-top: $height solid $foreground-color;
+    } @else if $direction == left {
+      border-bottom: $width solid $background-color;
+      border-right: $height solid $foreground-color;
+      border-top: $width solid $background-color;
+    }
+  } @else if ($direction == up-right) or ($direction == up-left) {
+    border-top: $height solid $foreground-color;
+
+    @if $direction == up-right {
+      border-left:  $width solid $background-color;
+    } @else if $direction == up-left {
+      border-right: $width solid $background-color;
+    }
+  } @else if ($direction == down-right) or ($direction == down-left) {
+    border-bottom: $height solid $foreground-color;
+
+    @if $direction == down-right {
+      border-left:  $width solid $background-color;
+    } @else if $direction == down-left {
+      border-right: $width solid $background-color;
+    }
+  } @else if ($direction == inset-up) {
+    border-color: $background-color $background-color $foreground-color;
+    border-style: solid;
+    border-width: $height $width;
+  } @else if ($direction == inset-down) {
+    border-color: $foreground-color $background-color $background-color;
+    border-style: solid;
+    border-width: $height $width;
+  } @else if ($direction == inset-right) {
+    border-color: $background-color $background-color $background-color $foreground-color;
+    border-style: solid;
+    border-width: $width $height;
+  } @else if ($direction == inset-left) {
+    border-color: $background-color $foreground-color $background-color $background-color;
+    border-style: solid;
+    border-width: $width $height;
+  }
+}

@@ -1,0 +1,15 @@
+.single {
+  color: #fff;
+}
+
+.single-missing {
+  color: #000;
+}
+
+.multiple {
+  color: #fff;
+}
+
+.multiple-missing {
+  color: #000;
+}

@@ -1,0 +1,14 @@
+.triangle-down {
+  height: 0;
+  width: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid #ffffff;
+}
+
+.triangle-corner {
+  height: 0;
+  width: 0;
+  border-top: 6px solid #000000;
+  border-right: 12px solid #aaaaaa;
+}

@@ -1,0 +1,7 @@
+.has-pipeline {
+  src: font-url("b.eot?#iefix") format("embedded-opentype"), font-url("b.woff2") format("woff2"), font-url("b.woff") format("woff"), font-url("b.ttf") format("truetype"), font-url("b.svg#a") format("svg");
+}
+
+.no-pipeline {
+  src: url("b.eot?#iefix") format("embedded-opentype"), url("b.woff2") format("woff2"), url("b.woff") format("woff"), url("b.ttf") format("truetype"), url("b.svg#a") format("svg");
+}

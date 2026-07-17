@@ -1,0 +1,15 @@
+.single {
+  padding: 10px 10px 10px 10px;
+}
+
+.double {
+  padding: 1em 2em 1em 2em;
+}
+
+.triple {
+  padding: 10px 20px 0 20px;
+}
+
+.quadruple {
+  padding: 0 calc(1em + 10px) 20px 50px;
+}

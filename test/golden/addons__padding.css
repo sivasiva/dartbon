@@ -1,0 +1,21 @@
+.padding-all {
+  padding: 1px;
+}
+
+.padding-alternate {
+  padding: 2px 3px;
+}
+
+.padding-implied-left {
+  padding: 4px 5px 6px;
+}
+
+.padding-explicit {
+  padding: 7px 8px 9px 10px;
+}
+
+.padding-false-third {
+  padding-top: 11px;
+  padding-right: 12px;
+  padding-left: 13px;
+}

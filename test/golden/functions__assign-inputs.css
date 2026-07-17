@@ -1,0 +1,17 @@
+input[type=color], input[type=date], input[type=datetime], input[type=datetime-local], input[type=email], input[type=month], input[type=number], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=time], input[type=url], input[type=week], input:not([type]), textarea {
+  color: #ff0000;
+}
+
+input[type=color]:active, input[type=date]:active, input[type=datetime]:active, input[type=datetime-local]:active, input[type=email]:active, input[type=month]:active, input[type=number]:active, input[type=password]:active, input[type=search]:active, input[type=tel]:active, input[type=text]:active, input[type=time]:active, input[type=url]:active, input[type=week]:active, input:not([type]):active, textarea:active {
+  color: #00ff00;
+}
+
+input[type=color], input[type=date], input[type=datetime], input[type=datetime-local], input[type=email], input[type=month], input[type=number], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=time], input[type=url], input[type=week], input:not([type]), textarea,
+select {
+  color: #0000ff;
+}
+
+input[type=file],
+input[type=color], input[type=date], input[type=datetime], input[type=datetime-local], input[type=email], input[type=month], input[type=number], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=time], input[type=url], input[type=week], input:not([type]), textarea {
+  color: #ff00ff;
+}

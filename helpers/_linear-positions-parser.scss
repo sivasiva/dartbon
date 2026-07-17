@@ -1,0 +1,69 @@
+@use "sass:list";
+@use "sass:meta";
+@use "sass:string";
+@function linear-positions-parser($pos) {
+
+
+  $type: meta.type-of(list.nth($pos, 1));
+  $spec: null;
+  $degree: null;
+  $side: null;
+  $corner: null;
+  $length: list.length($pos);
+  // Parse Side and corner positions
+  @if ($length > 1) {
+    @if list.nth($pos, 1) == "to" { // Newer syntax
+      $side: list.nth($pos, 2);
+
+      @if $length == 2 { // eg. to top
+        // Swap for backwards compatibility
+        $degree: position-flipper(list.nth($pos, 2));
+      }
+      @else if $length == 3 { // eg. to top left
+        $corner: list.nth($pos, 3);
+      }
+    }
+    @else if $length == 2 { // Older syntax ("top left")
+      $side: position-flipper(list.nth($pos, 1));
+      $corner: position-flipper(list.nth($pos, 2));
+    }
+
+    @if ("#{$side} #{$corner}" == "left top") or ("#{$side} #{$corner}" == "top left") {
+      $degree: position-flipper(#{$side}) position-flipper(#{$corner});
+    }
+    @else if ("#{$side} #{$corner}" == "right top") or ("#{$side} #{$corner}" == "top right") {
+      $degree: position-flipper(#{$side}) position-flipper(#{$corner});
+    }
+    @else if ("#{$side} #{$corner}" == "right bottom") or ("#{$side} #{$corner}" == "bottom right") {
+      $degree: position-flipper(#{$side}) position-flipper(#{$corner});
+    }
+    @else if ("#{$side} #{$corner}" == "left bottom") or ("#{$side} #{$corner}" == "bottom left") {
+      $degree: position-flipper(#{$side}) position-flipper(#{$corner});
+    }
+    $spec: to $side $corner;
+  }
+  @else if $length == 1 {
+    // Swap for backwards compatibility
+    @if $type == string {
+      $degree: $pos;
+      $spec: to position-flipper($pos);
+    }
+    @else {
+      $degree: -270 - $pos; //rotate the gradient opposite from spec
+      $spec: $pos;
+    }
+  }
+  $degree: string.unquote($degree + ",");
+  $spec:   string.unquote($spec + ",");
+
+
+  @return $degree $spec;
+}
+
+@function position-flipper($pos) {
+
+  @return if(sass($pos == left): right)
+         if(sass($pos == right): left)
+         if(sass($pos == top): bottom)
+         if(sass($pos == bottom): top);
+}

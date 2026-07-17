@@ -1,0 +1,21 @@
+.border-width-all {
+  border-width: 1px;
+}
+
+.border-width-alternate {
+  border-width: 2px 3px;
+}
+
+.border-width-implied-left {
+  border-width: 4px 5px 6px;
+}
+
+.border-width-explicit {
+  border-width: 7px 8px 9px 10px;
+}
+
+.border-width-false-third {
+  border-top-width: 11px;
+  border-right-width: 12px;
+  border-left-width: 13px;
+}

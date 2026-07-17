@@ -1,0 +1,15 @@
+.all-buttons {
+  content: button, input[type="button"], input[type="reset"], input[type="submit"];
+}
+
+.all-buttons-active {
+  content: button:active, input[type="button"]:active, input[type="reset"]:active, input[type="submit"]:active;
+}
+
+.all-buttons-focus {
+  content: button:focus, input[type="button"]:focus, input[type="reset"]:focus, input[type="submit"]:focus;
+}
+
+.all-buttons-hover {
+  content: button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover;
+}

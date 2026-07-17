@@ -1,0 +1,41 @@
+.position-only-type {
+  position: relative;
+}
+
+.position-all {
+  position: fixed;
+  top: 1em;
+  right: 1em;
+  bottom: 1em;
+  left: 1em;
+}
+
+.position-alternate {
+  position: absolute;
+  top: 2px;
+  right: 3px;
+  bottom: 2px;
+  left: 3px;
+}
+
+.position-implied-left {
+  position: relative;
+  top: 4px;
+  right: 5px;
+  bottom: 6px;
+  left: 5px;
+}
+
+.position-explicit {
+  position: fixed;
+  top: 7px;
+  right: 8px;
+  bottom: 9px;
+  left: 10px;
+}
+
+.position-false-third {
+  position: static;
+  top: 11px;
+  left: 13px;
+}

@@ -1,0 +1,67 @@
+@use "sass:list";
+@use "sass:map";
+@use "sass:meta";
+@use "sass:string";
+@use "../helpers/linear-gradient-parser";
+@use "../helpers/radial-gradient-parser";
+
+@mixin border-image($borders...) {
+
+  $webkit-borders: ();
+  $spec-borders: ();
+
+  @each $border in $borders {
+    $webkit-border: ();
+    $spec-border: ();
+    $border-type: meta.type-of($border);
+
+    @if $border-type == string or list {
+      $border-str: if(sass($border-type == list): list.nth($border, 1); else: $border);
+
+      $url-str:       string.slice($border-str, 1, 3);
+      $gradient-type: string.slice($border-str, 1, 6);
+
+      @if $url-str == "url" {
+        $webkit-border: $border;
+        $spec-border:   $border;
+      }
+
+      @else if $gradient-type == "linear" {
+        $gradients: linear-gradient-parser.linear-gradient-parser("#{$border}");
+        $webkit-border: map.get($gradients, webkit-image);
+        $spec-border:   map.get($gradients, spec-image);
+      }
+
+      @else if $gradient-type == "radial" {
+        $gradients: radial-gradient-parser.radial-gradient-parser("#{$border}");
+        $webkit-border: map.get($gradients, webkit-image);
+        $spec-border:   map.get($gradients, spec-image);
+      }
+
+      @else {
+        $webkit-border: $border;
+        $spec-border:   $border;
+      }
+    }
+
+    @else {
+      $webkit-border: $border;
+      $spec-border:   $border;
+    }
+
+    $webkit-borders: list.append($webkit-borders, $webkit-border, comma);
+    $spec-borders:   list.append($spec-borders,   $spec-border,   comma);
+  }
+
+  -webkit-border-image: $webkit-borders;
+          border-image: $spec-borders;
+          border-style: solid;
+}
+
+//Examples:
+// @include border-image(url("image.png"));
+// @include border-image(url("image.png") 20 stretch);
+// @include border-image(linear-gradient(45deg, orange, yellow));
+// @include border-image(linear-gradient(45deg, orange, yellow) stretch);
+// @include border-image(linear-gradient(45deg, orange, yellow) 20 30 40 50 stretch round);
+// @include border-image(radial-gradient(top, cover, orange, yellow, orange));

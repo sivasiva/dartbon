@@ -1,0 +1,9 @@
+@use "bourbon" as *;
+
+.word-wrap {
+  @include word-wrap;
+}
+
+.word-wrap-break {
+  @include word-wrap(normal);
+}

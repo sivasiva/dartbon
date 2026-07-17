@@ -1,0 +1,44 @@
+@use "sass:list";
+@use "sass:meta";
+@use "../helpers/radial-arg-parser";
+@use "../helpers/shape-size-stripper";
+
+// Requires Sass 3.1+
+@mixin radial-gradient($g1, $g2,
+                       $g3: null, $g4: null,
+                       $g5: null, $g6: null,
+                       $g7: null, $g8: null,
+                       $g9: null, $g10: null,
+                       $pos: null,
+                       $shape-size: null,
+                       $fallback: null) {
+
+  $data: radial-arg-parser.radial-arg-parser($g1, $g2, $pos, $shape-size);
+  $g1:  list.nth($data, 1);
+  $g2:  list.nth($data, 2);
+  $pos: list.nth($data, 3);
+  $shape-size: list.nth($data, 4);
+
+  $full: $g1, $g2, $g3, $g4, $g5, $g6, $g7, $g8, $g9, $g10;
+
+  // Strip deprecated cover/contain for spec
+  $shape-size-spec: shape-size-stripper.shape-size-stripper($shape-size);
+
+  // Set $g1 as the default fallback color
+  $first-color: list.nth($full, 1);
+  $fallback-color: list.nth($first-color, 1);
+
+  @if (meta.type-of($fallback) == color) or ($fallback == "transparent") {
+    $fallback-color: $fallback;
+  }
+
+  // Add Commas and spaces
+  $shape-size: if(sass($shape-size): "#{$shape-size}, ");
+  $pos:        if(sass($pos): "#{$pos}, ");
+  $pos-spec:   if(sass($pos): "at #{$pos}");
+  $shape-size-spec: if(sass(($shape-size-spec != " ") and ($pos == null)): "#{$shape-size-spec}, "; else: "#{$shape-size-spec} ");
+
+  background-color:  $fallback-color;
+  background-image: -webkit-radial-gradient(#{$pos}#{$shape-size}#{$full});
+  background-image: radial-gradient(#{$shape-size-spec}#{$pos-spec}#{$full});
+}

@@ -1,0 +1,21 @@
+.border-style-all {
+  border-style: solid;
+}
+
+.border-style-alternate {
+  border-style: dotted dashed;
+}
+
+.border-style-implied-left {
+  border-style: dashed double solid;
+}
+
+.border-style-explicit {
+  border-style: dotted groove ridge none;
+}
+
+.border-style-false-third {
+  border-top-style: inset;
+  border-right-style: none;
+  border-left-style: double;
+}

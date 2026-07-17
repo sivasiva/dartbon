@@ -1,0 +1,5 @@
+@use "bourbon" as *;
+
+.clearfix {
+  @include clearfix;
+}

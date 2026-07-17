@@ -1,0 +1,5 @@
+@use "bourbon" as *;
+
+.hide-text {
+  @include hide-text;
+}

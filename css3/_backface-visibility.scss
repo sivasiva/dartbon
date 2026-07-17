@@ -1,0 +1,6 @@
+@use "../addons/prefixer";
+
+@mixin backface-visibility($visibility) {
+
+  @include prefixer.prefixer(backface-visibility, $visibility, webkit spec);
+}

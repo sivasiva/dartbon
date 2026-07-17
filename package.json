@@ -1,0 +1,14 @@
+{
+  "name": "bourbon-dartsass",
+  "version": "4.3.4-dartsass.0",
+  "private": true,
+  "description": "Dart Sass-native port of Bourbon 4.3.4",
+  "license": "MIT",
+  "devDependencies": {
+    "sass": "^1.90.0",
+    "sass-migrator": "2.6.1"
+  },
+  "scripts": {
+    "test": "bash test/run.sh"
+  }
+}
